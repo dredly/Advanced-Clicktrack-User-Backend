@@ -8,4 +8,6 @@ class User {
   public name!: string;
 }
 
-export const UserModel = getModelForClass(User);
+const UserModel = getModelForClass(User);
+
+export default UserModel;

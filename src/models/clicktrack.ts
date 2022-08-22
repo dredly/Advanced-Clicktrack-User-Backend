@@ -8,4 +8,6 @@ class Clicktrack {
   public numSections!: string; //Temporary for testing
 }
 
-export const ClicktrackModel = getModelForClass(Clicktrack);
+const ClicktrackModel = getModelForClass(Clicktrack);
+
+export default ClicktrackModel;
