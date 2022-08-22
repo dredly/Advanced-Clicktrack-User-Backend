@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
+    "seed": "ts-node db/populate_db.ts",
     "dev": "ts-node-dev src/index.ts",
     "start": "node build/index.js",
     "lint": "eslint --ext ts",
