@@ -1,13 +1,14 @@
 import * as dotenv from "dotenv";
 
 if (process.env.NODE_ENV !== 'production') {
-	console.log('Not production');
 	dotenv.config();
 }
 
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import clicktrackRouter from './routes/clicktracks';
+import userRouter from './routes/users';
 
 const app = express();
 
@@ -25,6 +26,10 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(express.json());
+
+app.use('/api/clicktracks', clicktrackRouter);
+app.use('/api/users', userRouter);
 
 const PORT = 3002;
 
