@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import * as bcrypt from 'bcrypt';
 
 import UserModel from "../models/user";
+import config from '../config';
 
 const getAll = async () => {
 	const allUsers = await UserModel.find({});
@@ -50,7 +51,7 @@ const giveToken = (username: string, id: string) => {
 	const userForToken = {username, id};
 	// Token expires in 60 * 60 * 24 seconds, so 1 day
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment
-	const token: string = jwt.sign(userForToken, 'secret', { expiresIn: 60 * 60 * 24 });
+	const token: string = jwt.sign(userForToken, config.SECRET, { expiresIn: 60 * 60 * 24 });
 	return token;
 };
 
