@@ -6,9 +6,12 @@ import userExtractor from '../middleware/userExtractor';
 
 const router = express.Router();
 
-router.get('/:id', (async (req, res) => {
+router.get('/:id', userExtractor, (async (req, res) => {
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 	const clicktrack = await clicktrackController.getOne(req.params.id.toString());
+	if (clicktrack.author?.toString() !== req.userId) {
+		res.status(403).send({error: 'forbidden'});
+	}
 	res.send(clicktrack);
 }));
 
@@ -26,7 +29,11 @@ router.post('/', userExtractor, (async (req, res) => {
 	res.send(newClickTrack);
 }));
 
-router.put('/:id', (async (req, res) => {
+router.put('/:id', userExtractor, (async (req, res) => {
+	const clicktrack = await clicktrackController.getOne(req.params.id.toString());
+	if (clicktrack.author?.toString() !== req.userId) {
+		res.status(403).send({error: 'forbidden'});
+	}
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 	const { title, sections } = req.body;
 	const updatedClicktrack = await clicktrackController.edit(title as string, sections as Section[], req.params.id.toString());
@@ -36,7 +43,11 @@ router.put('/:id', (async (req, res) => {
 	return res.send(updatedClicktrack);
 }));
 
-router.delete('/:id', (async (req, res) => {	
+router.delete('/:id', userExtractor, (async (req, res) => {
+	const clicktrack = await clicktrackController.getOne(req.params.id.toString());
+	if (clicktrack.author?.toString() !== req.userId) {
+		res.status(403).send({error: 'forbidden'});
+	}	
 	await clicktrackController.destroy(req.params.id.toString());
 	return res.status(204).send({});
 }));

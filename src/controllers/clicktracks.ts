@@ -11,7 +11,7 @@ const getOne = async (id: string) => {
 	if (!foundClicktrack) {
 		throw new Error('Clicktrack not found');
 	} else {
-		return foundClicktrack.populate('author');
+		return foundClicktrack;
 	}
 };
 
