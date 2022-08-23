@@ -30,19 +30,69 @@ const seedDB = async () => {
 
 	const ct1 = new ClicktrackModel({
 		title: 'Flight of the Bumblebee', 
-		numSections: 2,
+		sections: [{
+			overallData: {
+				numMeasures: 6,
+				mtc: 0.5
+			},
+			rhythms: [
+				{
+					bpms: [120, 120],
+					timeSig: [4, 4],
+					accentedBeats: [0]
+				}
+			]
+		}],
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		author: miguel.id
 	});
 	const ct2 = new ClicktrackModel({
 		title: 'In the Hall of the Mountain King', 
-		numSections: 4,
+		sections: [{
+			overallData: {
+				numMeasures: 32,
+				mtc: 0.45
+			},
+			rhythms: [
+				{
+					bpms: [80, 180],
+					timeSig: [4, 4],
+					accentedBeats: [0, 2]
+				}
+			]
+		}],
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		author: miguel.id
 	});
 	const ct3 = new ClicktrackModel({
 		title: 'Band Practice 24/05/2022', 
-		numSections: 5,
+		sections: [{
+			overallData: {
+				numMeasures: 8,
+				mtc: 0.5
+			},
+			rhythms: [
+				{
+					bpms: [120, 120],
+					timeSig: [4, 4],
+					accentedBeats: [0]
+				}
+			]
+		},
+		{
+			overallData: {
+				numMeasures: 12,
+				mtc: 0.7
+			},
+			rhythms: [
+				{
+					bpms: [120, 90],
+					timeSig: [3, 8],
+					accentedBeats: [0]
+				}
+			]
+		}
+		],
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		author: miguel.id
 	});

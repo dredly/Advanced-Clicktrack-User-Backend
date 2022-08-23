@@ -2,12 +2,28 @@ import { prop, buildSchema, Ref } from '@typegoose/typegoose';
 import { User } from './user';
 import mongoose from 'mongoose';
 
+interface OverallData {
+	numMeasures: number;
+	mtc: number;
+}
+
+interface Rhythm {
+	bpms: number[];
+	timeSig: number[];
+	accentedBeats: number[];
+}
+
+interface Section {
+	overallData: OverallData;
+	rhythms: Rhythm[];
+}
+
 class Clicktrack {
   @prop()
   public title!: string;
 
   @prop()
-  public numSections!: string; //Temporary for testing
+  public sections!: Section[];
 
   @prop({ref: () => User})
   public author!: Ref<User>;
