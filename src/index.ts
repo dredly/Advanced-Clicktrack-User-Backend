@@ -25,7 +25,7 @@ mongoose.connect(config.MONGODB_URI)
 	});
 
 const corsOptions = {
-	origin: 'https://clicktrack-redux.vercel.app',
+	origin: config.FRONTEND_URL,
 	optionsSuccessStatus: 200
 };
 

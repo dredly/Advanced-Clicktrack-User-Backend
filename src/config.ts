@@ -7,6 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
 let PORT: string;
 let MONGODB_URI: string;
 let SECRET: string;
+let FRONTEND_URL: string;
 
 if (!process.env.PORT) {
 	throw new Error('PORT value missing');
@@ -20,11 +21,21 @@ if (process.env.NODE_ENV !== 'production') {
 	} else {
 		MONGODB_URI = process.env.MONGODB_URI_DEV;
 	}
+	if (!process.env.FRONTEND_URL_DEV) {
+		throw new Error('FRONTEND_URL_DEV missing');
+	} else {
+		FRONTEND_URL = process.env.FRONTEND_URL_DEV;
+	}
 } else {
 	if (!process.env.MONGODB_URI_PROD) {
 		throw new Error('MONGODB_UDI_PROD value missing');
 	} else {
 		MONGODB_URI = process.env.MONGODB_URI_PROD;
+	}
+	if (!process.env.FRONTEND_URL_PROD) {
+		throw new Error('FRONTEND_URL_PROD missing');
+	} else {
+		FRONTEND_URL = process.env.FRONTEND_URL_PROD;
 	}
 }
 
@@ -37,5 +48,6 @@ if (!process.env.SECRET) {
 export default {
 	PORT,
 	MONGODB_URI,
-	SECRET
+	SECRET,
+	FRONTEND_URL
 };
