@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import express from 'express';
 import clicktrackController from '../controllers/clicktracks';
+import { Section } from '../types';
 
 const router = express.Router();
 
@@ -17,9 +18,9 @@ router.get('/', (async (_req, res) => {
 
 router.post('/', (async (req, res) => {
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-	const { title, numSections } = req.body;
+	const { title, sections } = req.body;
 	const authorId = '6303c18460a4dba65eabb33a'; //hardcoded for now
-	const newClickTrack = await clicktrackController.add(title as string, numSections as string, authorId as string);
+	const newClickTrack = await clicktrackController.add(title as string, sections as Section[], authorId as string);
 	res.send(newClickTrack);
 }));
 

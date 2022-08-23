@@ -1,22 +1,7 @@
 import { prop, buildSchema, Ref } from '@typegoose/typegoose';
 import { User } from './user';
+import { Section } from '../types';
 import mongoose from 'mongoose';
-
-interface OverallData {
-	numMeasures: number;
-	mtc: number;
-}
-
-interface Rhythm {
-	bpms: number[];
-	timeSig: number[];
-	accentedBeats: number[];
-}
-
-interface Section {
-	overallData: OverallData;
-	rhythms: Rhythm[];
-}
 
 class Clicktrack {
   @prop()
