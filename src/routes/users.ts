@@ -4,16 +4,16 @@ import userController from '../controllers/users';
 
 const router = express.Router();
 
-router.get('/:id', (async (req, res) => {
-	const user = await userController.getOne(req.params.id.toString());
-	console.log(typeof user);
-	res.send(user);
-}));
+// router.get('/:id', (async (req, res) => {
+// 	const user = await userController.getOne(req.params.id.toString());
+// 	console.log(typeof user);
+// 	res.send(user);
+// }));
 
-router.get('/', (async (_req, res) => {
-	const allUsers = await userController.getAll();
-	res.send(allUsers);
-}));
+// router.get('/', (async (_req, res) => {
+// 	const allUsers = await userController.getAll();
+// 	res.send(allUsers);
+// }));
 
 router.post('/login', (async (req, res) => {
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment

@@ -1,0 +1,3 @@
+- [x] Make clicktracks associated with a user when created
+- [x] Filtering clicktracks by user
+- [ ] Actual auth

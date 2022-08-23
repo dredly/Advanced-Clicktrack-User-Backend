@@ -1,8 +1,8 @@
 import ClicktrackModel from "../models/clicktrack";
 import { Section } from '../types';
 
-const getAll = async () => {
-	const allClicktracks = await ClicktrackModel.find({});
+const getAllFromUser = async (userId: string) => {
+	const allClicktracks = await ClicktrackModel.find({author: userId});
 	return allClicktracks;
 };
 
@@ -42,7 +42,7 @@ const destroy = async (id: string) => {
 };
 
 export default {
-	getAll,
+	getAllFromUser,
 	getOne,
 	add,
 	edit,

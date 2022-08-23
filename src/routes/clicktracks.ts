@@ -2,6 +2,7 @@
 import express from 'express';
 import clicktrackController from '../controllers/clicktracks';
 import { Section } from '../types';
+import userExtractor from '../middleware/userExtractor';
 
 const router = express.Router();
 
@@ -11,15 +12,16 @@ router.get('/:id', (async (req, res) => {
 	res.send(clicktrack);
 }));
 
-router.get('/', (async (_req, res) => {
-	const allClicktracks = await clicktrackController.getAll();
-	res.send(allClicktracks);
+router.get('/', userExtractor, (async (req, res) => {
+	const clicktracks = await clicktrackController.getAllFromUser(req.userId as string);
+	res.send(clicktracks);
 }));
 
-router.post('/', (async (req, res) => {
+router.post('/', userExtractor, (async (req, res) => {
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 	const { title, sections } = req.body;
-	const authorId = '6303c18460a4dba65eabb33a'; //hardcoded for now
+	console.log('userId', req.userId);
+	const authorId = req.userId;
 	const newClickTrack = await clicktrackController.add(title as string, sections as Section[], authorId as string);
 	res.send(newClickTrack);
 }));
