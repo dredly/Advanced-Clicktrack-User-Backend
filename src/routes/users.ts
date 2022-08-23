@@ -33,6 +33,9 @@ router.post('/login', (async (req, res) => {
 router.post('/', (async (req, res) => {
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 	const { username, name, password } = req.body;
+	if (password.length < 8) {
+		return res.status(400).send({error: 'Password must be 8 characters or more'});
+	}
 	const existingUser = await userController.getByUsername(username as string);
 	if (existingUser) {
 		return res.status(400).send({error: 'A user with that name exists already'});
