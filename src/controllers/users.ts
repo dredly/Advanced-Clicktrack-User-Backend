@@ -29,7 +29,7 @@ const getByUsername = async (username: string) => {
 const register = async (username: string, name: string, password: string) => {
 	const saltRounds = 10;
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-	const passwordHash = await bcrypt.hash(password, saltRounds) as string;
+	const passwordHash = await bcrypt.hash(password, saltRounds);
 	const newUser = new UserModel({
 		username,
 		name,
@@ -42,7 +42,7 @@ const register = async (username: string, name: string, password: string) => {
 
 const checkPassword = async (password: string, passwordHash: string) => {
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-	const isCorrect = await bcrypt.compare(password , passwordHash ) as boolean;
+	const isCorrect = await bcrypt.compare(password , passwordHash ) ;
 	return isCorrect;
 };
 
