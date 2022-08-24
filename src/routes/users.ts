@@ -27,7 +27,7 @@ router.post('/login', (async (req, res) => {
 		return res.status(401).send({error: 'Bad credentials'});
 	}
 	const token = userController.giveToken(user.username, user.id as string);
-	return res.send({token});
+	return res.send({token, user});
 }));
 
 router.post('/', (async (req, res) => {
