@@ -3,5 +3,6 @@
 - [x] Add auth to all other relevant routes
 - [x] Add min length for password
 - [x] Add CORS origin to config
+- [x] Add uuid to sections
 - [ ] Configure production db
 - [ ] Deploy

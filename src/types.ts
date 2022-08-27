@@ -12,4 +12,5 @@ interface Rhythm {
 export interface Section {
 	overallData: OverallData;
 	rhythms: Rhythm[];
+	id: string;
 }

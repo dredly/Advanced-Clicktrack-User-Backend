@@ -1,4 +1,5 @@
 import * as dotenv from "dotenv";
+import { v4 as uuidv4 } from 'uuid';
 
 if (process.env.NODE_ENV !== 'production') {
 	dotenv.config();
@@ -23,7 +24,7 @@ const seedDB = async () => {
 	const user1 = new UserModel({
 		username: 'miguel123',
 		name: 'Miguel',
-		passwordHash: 'secret'
+		passwordHash: 'miguel123'
 	});
 
 	const miguel = await user1.save();
@@ -41,7 +42,8 @@ const seedDB = async () => {
 					timeSig: [4, 4],
 					accentedBeats: [0]
 				}
-			]
+			],
+			id: uuidv4()
 		}],
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		author: miguel.id
@@ -59,7 +61,8 @@ const seedDB = async () => {
 					timeSig: [4, 4],
 					accentedBeats: [0, 2]
 				}
-			]
+			],
+			id: uuidv4()
 		}],
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		author: miguel.id
@@ -77,7 +80,8 @@ const seedDB = async () => {
 					timeSig: [4, 4],
 					accentedBeats: [0]
 				}
-			]
+			],
+			id: uuidv4()
 		},
 		{
 			overallData: {
@@ -90,7 +94,8 @@ const seedDB = async () => {
 					timeSig: [3, 8],
 					accentedBeats: [0]
 				}
-			]
+			],
+			id: uuidv4()
 		}
 		],
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
