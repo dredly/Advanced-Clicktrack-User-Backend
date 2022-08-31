@@ -44,6 +44,7 @@ router.put('/:id', userExtractor, (async (req, res) => {
 }));
 
 router.delete('/:id', userExtractor, (async (req, res) => {
+	console.log('Requested to delete !!!');
 	const clicktrack = await clicktrackController.getOne(req.params.id.toString());
 	if (clicktrack.author?.toString() !== req.userId) {
 		res.status(403).send({error: 'forbidden'});

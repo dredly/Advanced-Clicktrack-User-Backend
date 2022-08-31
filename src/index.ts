@@ -24,12 +24,13 @@ mongoose.connect(config.MONGODB_URI)
 		console.error('error connecting to MongoDB:', error.message);
 	});
 
-const corsOptions = {
-	origin: config.FRONTEND_URL,
-	optionsSuccessStatus: 200
-};
+// const corsOptions = {
+// 	origin: config.FRONTEND_URL,
+// 	optionsSuccessStatus: 200
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(tokenExtractor);
 

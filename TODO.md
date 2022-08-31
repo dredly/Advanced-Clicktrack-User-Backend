@@ -6,3 +6,4 @@
 - [x] Add uuid to sections
 - [ ] Configure production db
 - [ ] Deploy
+- [ ] Add timestamps to clicktracks
