@@ -17,7 +17,7 @@ if (!process.env.PORT) {
 
 if (process.env.NODE_ENV !== 'production') {
 	if (!process.env.MONGODB_URI_DEV) {
-		throw new Error('MONGODB_UDI_DEV value missing');
+		throw new Error('MONGODB_URI_DEV value missing');
 	} else {
 		MONGODB_URI = process.env.MONGODB_URI_DEV;
 	}
@@ -28,7 +28,7 @@ if (process.env.NODE_ENV !== 'production') {
 	}
 } else {
 	if (!process.env.MONGODB_URI_PROD) {
-		throw new Error('MONGODB_UDI_PROD value missing');
+		throw new Error('MONGODB_URI_PROD value missing');
 	} else {
 		MONGODB_URI = process.env.MONGODB_URI_PROD;
 	}
