@@ -4,8 +4,8 @@ interface OverallData {
 }
 
 interface Rhythm {
-	bpms: number[];
-	timeSig: number[];
+	bpms: [number, number];
+	timeSig: [number, number];
 	accentedBeats: number[];
 }
 

@@ -4,6 +4,6 @@
 - [x] Add min length for password
 - [x] Add CORS origin to config
 - [x] Add uuid to sections
-- [ ] Configure production db
-- [ ] Deploy
+- [x] Configure production db
+- [x] Deploy
 - [ ] Add timestamps to clicktracks
